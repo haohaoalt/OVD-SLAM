@@ -3,7 +3,7 @@
 
 #include <vector>
 #include <string>
-#include <NvInfer.h>
+#include "NvInfer.h"
 #include "macros.h"
 
 namespace Yolo

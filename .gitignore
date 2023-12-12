@@ -1,0 +1,5 @@
+**/build/*
+*.pcd
+*.log
+*.txt
+**/model/*.engine

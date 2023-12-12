@@ -1,4 +1,13 @@
 /*
+ * @Author: https://github.com/haohaoalt
+ * @Date: 2023-12-12 14:44:30
+ * @LastEditors: hayden haohaoalt@163.com
+ * @LastEditTime: 2023-12-12 14:44:32
+ * @FilePath: /OVD-SLAM/src/PointCloudMapping.cc
+ * @Description: 
+ * Copyright (c) 2023 by haohaoalt@163.com, All Rights Reserved. 
+ */
+/*
  * <one line to give the program's name and a brief idea of what it does.>
  * Copyright (C) 2016  <copyright holder> <email>
  * 
@@ -269,11 +278,11 @@ void PointCloudMapping::viewer()
         pcl::PointCloud<pcl::PointXYZRGBA>::Ptr tmp(new pcl::PointCloud<pcl::PointXYZRGBA>);
 
         // 去除孤立点这个比较耗时，用处也不是很大，可以去掉
-        statistical_filter->setInputCloud(globalMap);  
-        statistical_filter->filter(*tmp);
+        //statistical_filter->setInputCloud(globalMap);  
+        //statistical_filter->filter(*tmp);
 
-        voxel->setInputCloud(globalMap);
-        voxel->filter(*globalMap);
+        //voxel->setInputCloud(tmp);////////////////////////////////////////////
+        //voxel->filter(*globalMap);
         // gettimeofday(&finish,NULL);//初始化结束时间
         // double filter = finish.tv_sec - start.tv_sec + (finish.tv_usec - start.tv_usec)/1000000.0;//转换浮点型
         // std::cout<<"filter: "<<filter<<std::endl;
@@ -329,9 +338,9 @@ void PointCloudMapping::updatecloud(Map &curMap)
                 currentvpKFs[i]->GetPoseInverse().matrix());
             *tmpGlobalMap += *curPointCloud;
 
-            voxel->setInputCloud(tmpGlobalMap);
-            voxel->filter(*tmpGlobalMapFilter);
-            tmpGlobalMap->swap(*tmpGlobalMapFilter);
+            //voxel->setInputCloud(tmpGlobalMap);
+            //voxel->filter(*tmpGlobalMapFilter);
+            //tmpGlobalMap->swap(*tmpGlobalMapFilter);///////////////////////////////////////
         }
     }
     cout << "点云更新完成" << endl;

@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.10)
 
 project(yolov5)
 
@@ -20,8 +20,8 @@ include_directories(${PROJECT_SOURCE_DIR}/include)
 include_directories(/usr/local/cuda/include)
 link_directories(/usr/local/cuda/lib64)
 # tensorrt
-include_directories(/media/ubuntu-slam/1T/Thirdparty/TensorRT-7.2.3.4.Ubuntu-18.04.x86_64-gnu.cuda-11.1.cudnn8.1/TensorRT-7.2.3.4/include)
-link_directories(/media/ubuntu-slam/1T/Thirdparty/TensorRT-7.2.3.4.Ubuntu-18.04.x86_64-gnu.cuda-11.1.cudnn8.1/TensorRT-7.2.3.4/lib)
+include_directories(/home/ubuntu/Dev/03hao_lib/TensorRT/TensorRT-7.2.3.4.Ubuntu-18.04.x86_64-gnu.cuda-11.0.cudnn8.1/TensorRT-7.2.3.4/include)
+link_directories(/home/ubuntu/Dev/03hao_lib/TensorRT-7.2.3.4.Ubuntu-18.04.x86_64-gnu.cuda-11.0.cudnn8.1/TensorRT-7.2.3.4/lib)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -Wall -Ofast -g -Wfatal-errors -D_MWAITXINTRIN_H_INCLUDED")
 #cuda_add_library(myplugins SHARED yololayer.cu)

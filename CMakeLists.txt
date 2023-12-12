@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.10)
 project(ORB_SLAM3)
 
 IF(NOT CMAKE_BUILD_TYPE)
@@ -48,7 +48,7 @@ MESSAGE(${OpenCV_VERSION})
 find_package(Eigen3 REQUIRED)
 find_package(Pangolin REQUIRED)
 find_package(realsense2)
-find_package(PCL 1.12 REQUIRED)
+find_package(PCL REQUIRED)
 
 find_package(TBB REQUIRED)
 message(STATUS "Found TBB ${TBB_VERSION_MAJOR}.${TBB_VERSION_MINOR} (interface version ${TBB_INTERFACE_VERSION}) headers in: ${TBB_INCLUDE_DIRS}")
@@ -68,6 +68,7 @@ ${PCL_INCLUDE_DIRS}
 ${TBB_INCLUDE_DIR}
 ${CUDA_INCLUDE_DIRS}
 )
+include_directories(/home/ubuntu/Dev/03hao_lib/TensorRT/TensorRT-7.2.3.4.Ubuntu-18.04.x86_64-gnu.cuda-11.0.cudnn8.1/TensorRT-7.2.3.4/include)
 
 add_definitions( ${PCL_DEFINITIONS} )
 link_directories( ${PCL_LIBRARY_DIRS} )
