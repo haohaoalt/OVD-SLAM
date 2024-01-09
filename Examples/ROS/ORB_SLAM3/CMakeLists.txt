@@ -134,15 +134,7 @@ rosbuild_add_executable(RGBD
 src/ros_rgbd.cc
 )
 
-rosbuild_add_executable(RGBD-azure
-src/ros_azure.cc
-)
-
 target_link_libraries(RGBD
-${LIBS}
-)
-
-target_link_libraries(RGBD-azure
 ${LIBS}
 )
 
@@ -170,5 +162,33 @@ src/ros_rgbd_inertial.cc
 )
 
 target_link_libraries(RGBD_Inertial
+${LIBS}
+)
+
+
+# Node for azure kinect
+rosbuild_add_executable(RGBD-azure
+src/ros_azure.cc
+)
+
+target_link_libraries(RGBD-azure
+${LIBS}
+)
+
+# Node for zed2i
+rosbuild_add_executable(Stereo-zed2i
+src/ros_zed2i.cc
+)
+
+target_link_libraries(Stereo-zed2i
+${LIBS}
+)
+
+# Node for kittirosbag
+rosbuild_add_executable(Stereo-kitti
+src/ros_kitti.cc
+)
+
+target_link_libraries(Stereo-kitti
 ${LIBS}
 )
