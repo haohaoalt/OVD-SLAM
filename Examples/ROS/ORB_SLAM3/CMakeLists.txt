@@ -89,6 +89,8 @@ ${PROJECT_SOURCE_DIR}/../../../lib/libORB_SLAM3.so
 -lcrypto
 )
 
+set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
+
 # Node for monocular camera
 rosbuild_add_executable(Mono
 src/ros_mono.cc
@@ -139,31 +141,31 @@ ${LIBS}
 )
 
 # Node for monocular-inertial camera
-rosbuild_add_executable(Mono_Inertial
-src/ros_mono_inertial.cc
-)
+# rosbuild_add_executable(Mono_Inertial
+# src/ros_mono_inertial.cc
+# )
 
-target_link_libraries(Mono_Inertial
-${LIBS}
-)
+# target_link_libraries(Mono_Inertial
+# ${LIBS}
+# )
 
 # Node for stereo-inertial camera
-rosbuild_add_executable(Stereo_Inertial
-src/ros_stereo_inertial.cc
-)
+# rosbuild_add_executable(Stereo_Inertial
+# src/ros_stereo_inertial.cc
+# )
 
-target_link_libraries(Stereo_Inertial
-${LIBS}
-)
+# target_link_libraries(Stereo_Inertial
+# ${LIBS}
+# )
 
 # Node for rgbd-inertial camera
-rosbuild_add_executable(RGBD_Inertial
-src/ros_rgbd_inertial.cc
-)
+# rosbuild_add_executable(RGBD_Inertial
+# src/ros_rgbd_inertial.cc
+# )
 
-target_link_libraries(RGBD_Inertial
-${LIBS}
-)
+# target_link_libraries(RGBD_Inertial
+# ${LIBS}
+# )
 
 
 # Node for azure kinect

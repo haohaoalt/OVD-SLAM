@@ -361,19 +361,18 @@ mTimeORB_Ext = std::chrono::duration_cast<std::chrono::duration<double,std::mill
 //        cout<<mpTracker->mbNewSegImgFlag<<endl;
 #ifdef TIMES
         std::chrono::steady_clock::time_point RemoveMovingPointsWithEpiAndYOLO1 = std::chrono::steady_clock::now();
-#endif{
+#endif
         // Step2 用YOLO检测出来的物体的边界框，去除掉运动物体
         RemoveMovingPointsWithEpiAndYOLO(epiErr, imGray, imDepth);
-}
        
 #ifdef TIMES
         std::chrono::steady_clock::time_point RemoveMovingPointsWithEpiAndYOLO2 = std::chrono::steady_clock::now();
         cout << "RemoveMovingPointsWithEpiAndYOLO time:" << std::chrono::duration_cast<std::chrono::duration<double> >(RemoveMovingPointsWithEpiAndYOLO2 - RemoveMovingPointsWithEpiAndYOLO1).count() <<endl;
         std::chrono::steady_clock::time_point RemoveMovingKeyPoints1 = std::chrono::steady_clock::now();
-#endif{
+#endif
         // Step3 去除掉运动物体
         RemoveMovingKeyPoints(imGray, imDepth);
-}
+
         
 #ifdef TIMES
         std::chrono::steady_clock::time_point RemoveMovingKeyPoints2 = std::chrono::steady_clock::now();
