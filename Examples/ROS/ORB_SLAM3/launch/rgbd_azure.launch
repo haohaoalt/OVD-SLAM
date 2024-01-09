@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+
+<!-- rosbag arguments -->
+<arg name="bag_data_path" default="/home/ubuntu/Dev/dataset/Sensors/carmera/azure/azure-test.bag"/>
+
+
+<!-- orb_settings_file arguments -->
+<arg name="orb_settings_file" default="$(find ORB_SLAM3)/config/azure.yaml"/>
+
+<!-- rosbag replay-->
+<param name="use_sim_time" value="true"/>
+<!-- 
+  从10秒开始播放：rosbag play -s 10 xx.bag 
+  仅播放前十秒：rosbag play -u 10 xx.bag
+  从120s开始播放，只播放20s，就是播放120s~140s的时间段： rosbag play xx.bag -s 120 -u 20
+  -->
+<node pkg="rosbag" type="play" name="player" output="screen" args="$(arg bag_data_path) --clock --pause -r 1">
+</node>
+
+<!-- ORB_SLAM3 with Ros -->
+<!-- Provide the correct settings .yaml file to specify camera parameters and ORB feature settings -->
+<node pkg="ORB_SLAM3" type="RGBD-azure" name="orb_slam3" args="./Vocabulary/ORBvoc.bin $(arg orb_settings_file)">
+  
+</node>
+</launch>

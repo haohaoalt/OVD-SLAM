@@ -61,6 +61,7 @@ include_directories(
 ${PROJECT_SOURCE_DIR}
 ${PROJECT_SOURCE_DIR}/include
 ${PROJECT_SOURCE_DIR}/include/CameraModels
+${PROJECT_SOURCE_DIR}/include/TensorRT-7.2.3.4/include
 ${PROJECT_SOURCE_DIR}/Thirdparty/Sophus
 ${EIGEN3_INCLUDE_DIR}
 ${Pangolin_INCLUDE_DIRS}
@@ -68,7 +69,6 @@ ${PCL_INCLUDE_DIRS}
 ${TBB_INCLUDE_DIR}
 ${CUDA_INCLUDE_DIRS}
 )
-include_directories(/home/ubuntu/Dev/03hao_lib/TensorRT/TensorRT-7.2.3.4.Ubuntu-18.04.x86_64-gnu.cuda-11.0.cudnn8.1/TensorRT-7.2.3.4/include)
 
 add_definitions( ${PCL_DEFINITIONS} )
 link_directories( ${PCL_LIBRARY_DIRS} )

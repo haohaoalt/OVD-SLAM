@@ -1,12 +1,3 @@
-/*
- * @Author: https://github.com/haohaoalt
- * @Date: 2024-01-09 15:23:13
- * @LastEditors: hayden haohaoalt@163.com
- * @LastEditTime: 2024-01-09 15:25:05
- * @FilePath: /ovd/OVD-SLAM/Examples/ROS/ORB_SLAM3/src/ros_azure.cc
- * @Description: 
- * Copyright (c) 2024 by haohaoalt@163.com, All Rights Reserved. 
- */
 /**
 * This file is part of ORB-SLAM3
 *
@@ -83,7 +74,7 @@ int main(int argc, char **argv)
     // Stop all threads
     SLAM.Shutdown();
 
-    // Save camera trajectory
+    // Save camera trajectory add notes
     SLAM.SaveKeyFrameTrajectoryTUM("KeyFrameTrajectory.txt");
     SLAM.SaveTrajectoryTUM("CameraTrajectory.txt");
 

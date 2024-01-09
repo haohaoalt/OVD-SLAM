@@ -625,11 +625,12 @@ void Frame::RemoveMovingPointsWithEpiAndYOLO(std::vector<double> epiErr, const c
     }
     else
     {
+        std::cout << "I'm in else yoloBoundingBoxList.size()" << mpTracker->yoloBoundingBoxList.size() << std::endl;
         //遍历所有点
         for(int i=0; i<mvKeys.size(); i++)
         {
             //遍历所有框
-            for(int j=0; j<mpTracker->yoloBoundingBoxList.size(); j++)
+            for(int j=0; j < mpTracker->yoloBoundingBoxList.size(); j++)
             {
                 //判断是否在框内
                 if(isInBox(mvKeys[i],mpTracker->yoloBoundingBoxList[j]))

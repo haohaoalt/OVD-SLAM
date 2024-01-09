@@ -105,6 +105,10 @@ cd OVD-SLAM
 chmod +x build.sh
 ./build.sh
 ```
+在这个示例中，脚本接受一个 -c 或 --clean 参数，如果提供了这个参数，就会执行清理之前的构建产物。例如：
+```bash
+./your_script.sh --clean
+```
 
 # 4. Running OVD-SLAM with your camera
 

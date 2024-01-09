@@ -1,12 +1,3 @@
-/*
- * @Author: https://github.com/haohaoalt
- * @Date: 2024-01-09 15:44:16
- * @LastEditors: hayden haohaoalt@163.com
- * @LastEditTime: 2024-01-09 15:45:51
- * @FilePath: /ovd/OVD-SLAM/Examples/ROS/ORB_SLAM3/src/ros_kitti.cc
- * @Description: 
- * Copyright (c) 2024 by haohaoalt@163.com, All Rights Reserved. 
- */
 /**
 * This file is part of ORB-SLAM3
 *

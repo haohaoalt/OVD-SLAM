@@ -35,7 +35,7 @@ Stereo.ThDepth: 40.0
 Stereo.b: 0.0745
 
 # Depth map values factor
-RGBD.DepthMapFactor: 1000.0
+RGBD.DepthMapFactor: 5000.0
 
 #--------------------------------------------------------------------------------------------
 # ORB Parameters
@@ -69,3 +69,9 @@ Viewer.ViewpointX: 0.0
 Viewer.ViewpointY: -0.7
 Viewer.ViewpointZ: -3.5
 Viewer.ViewpointF: 500.0
+
+UseDynamic: 1
+PointCloudMapping: 1
+PointCloudMapping.Resolution: 0.01
+meank: 50
+thresh: 1.0
