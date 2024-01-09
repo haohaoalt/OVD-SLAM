@@ -31,6 +31,7 @@ class Tracking;
 
 class YoloBoundingBox{
 private:
+//hayden: box struct
     cv::Rect2f rect;
     std::string label;
     //This id was used for multi object tracking, but in experiment I found that MOT cost too much time, so I delete the MOT module

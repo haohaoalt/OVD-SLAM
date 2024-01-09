@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.10)
 include($ENV{ROS_ROOT}/core/rosbuild/rosbuild.cmake)
 
 rosbuild_init()
@@ -45,7 +45,7 @@ endif()
 
 find_package(Eigen3 3.1.0 REQUIRED)
 find_package(Pangolin REQUIRED)
-find_package(PCL 1.12 REQUIRED)
+find_package(PCL REQUIRED)
 
 find_package(TBB REQUIRED)
 message(STATUS "Found TBB ${TBB_VERSION_MAJOR}.${TBB_VERSION_MINOR} (interface version ${TBB_INTERFACE_VERSION}) headers in: ${TBB_INCLUDE_DIRS}")
@@ -134,7 +134,15 @@ rosbuild_add_executable(RGBD
 src/ros_rgbd.cc
 )
 
+rosbuild_add_executable(RGBD-azure
+src/ros_azure.cc
+)
+
 target_link_libraries(RGBD
+${LIBS}
+)
+
+target_link_libraries(RGBD-azure
 ${LIBS}
 )
 

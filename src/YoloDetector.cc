@@ -116,6 +116,7 @@ void YoloDetector::DetectByTensorRT(cv::Mat image, std::vector<YoloBoundingBox>&
         cv::Rect2f rect= get_rect(img,res[i].bbox);
         if(class_names[res[i].class_id]=="person")
             mpTracker->mvDynamicArea.push_back(rect);
+            //hayden: add dynamic area
         yoloBoundingBoxList.push_back(YoloBoundingBox(rect, class_names[res[i].class_id], res[i].conf));
     }
 }

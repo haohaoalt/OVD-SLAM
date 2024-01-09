@@ -293,6 +293,7 @@ Frame::Frame(const cv::Mat &imGray, const cv::Mat &imDepth, const double &timeSt
     AssignFeaturesToGrid();
 }
 
+//hayden: OVD-SLAM/src/Frame.cc
 Frame::Frame(Tracking* pTracker, const cv::Mat &imGray, const cv::Mat &imDepth, const double &timeStamp, ORBextractor* extractor,ORBVocabulary* voc, cv::Mat &K, cv::Mat &distCoef, const float &bf, const float &thDepth, GeometricCamera* pCamera,Frame* pPrevF, const IMU::Calib &ImuCalib)
     :mpcpi(NULL),mpORBvocabulary(voc),mpORBextractorLeft(extractor),mpORBextractorRight(static_cast<ORBextractor*>(NULL)),
     mTimeStamp(timeStamp), mK(K.clone()), mK_(Converter::toMatrix3f(K)),mDistCoef(distCoef.clone()), mbf(bf), mThDepth(thDepth),
@@ -343,6 +344,7 @@ mTimeORB_Ext = std::chrono::duration_cast<std::chrono::duration<double,std::mill
     cv::Mat imGrayT = imGray;
     if(imGrayPre.data)
     {
+        // Step1 计算光流
         EpiloarWithFundMatrix(imGrayPre,imGray);
         std::swap(imGrayPre,imGrayT);
     }
@@ -359,14 +361,20 @@ mTimeORB_Ext = std::chrono::duration_cast<std::chrono::duration<double,std::mill
 //        cout<<mpTracker->mbNewSegImgFlag<<endl;
 #ifdef TIMES
         std::chrono::steady_clock::time_point RemoveMovingPointsWithEpiAndYOLO1 = std::chrono::steady_clock::now();
-#endif
-        RemoveMovingPointsWithEpiAndYOLO(epiErr,imGray,imDepth);
+#endif{
+        // Step2 用YOLO检测出来的物体的边界框，去除掉运动物体
+        RemoveMovingPointsWithEpiAndYOLO(epiErr, imGray, imDepth);
+}
+       
 #ifdef TIMES
         std::chrono::steady_clock::time_point RemoveMovingPointsWithEpiAndYOLO2 = std::chrono::steady_clock::now();
         cout << "RemoveMovingPointsWithEpiAndYOLO time:" << std::chrono::duration_cast<std::chrono::duration<double> >(RemoveMovingPointsWithEpiAndYOLO2 - RemoveMovingPointsWithEpiAndYOLO1).count() <<endl;
         std::chrono::steady_clock::time_point RemoveMovingKeyPoints1 = std::chrono::steady_clock::now();
-#endif
+#endif{
+        // Step3 去除掉运动物体
         RemoveMovingKeyPoints(imGray, imDepth);
+}
+        
 #ifdef TIMES
         std::chrono::steady_clock::time_point RemoveMovingKeyPoints2 = std::chrono::steady_clock::now();
         cout << "RemoveMovingKeyPoints time:" << std::chrono::duration_cast<std::chrono::duration<double> >(RemoveMovingKeyPoints2 - RemoveMovingKeyPoints1).count() <<endl;
@@ -445,7 +453,7 @@ mTimeORB_Ext = std::chrono::duration_cast<std::chrono::duration<double,std::mill
     // 将特征点分配到图像网格中
     AssignFeaturesToGrid();
 }
-
+//hayden： 光流法计算极线距离
 void Frame::EpiloarWithFundMatrix(const cv::Mat &ImGrayPre, const cv::Mat &ImGray)
 {
     Curpoint.clear();
@@ -637,7 +645,7 @@ void Frame::RemoveMovingPointsWithEpiAndYOLO(std::vector<double> epiErr, const c
 //                }
             }
         }
-        //计算每个框的动静属性
+        //hayden 计算每个框的动静属性
         for(auto it=mpTracker->yoloBoundingBoxList.begin(); it!=mpTracker->yoloBoundingBoxList.end(); ++it)
         {
             int M = it->epiErr.size();
@@ -761,6 +769,7 @@ void Frame::RemoveMovingKeyPoints(const cv::Mat &ImGray, const cv::Mat &ImDepth)
             mDescriptorsDynamic.push_back(mDescriptors.row(i));
         }
     }
+    //hayden OVDOUTPUT 给ORB
     mvKeys.swap(_mvKeys);
     mDescriptors = _mDescriptors.clone();
 
