@@ -177,6 +177,15 @@ target_link_libraries(RGBD-azure
 ${LIBS}
 )
 
+# Node for azure kinect
+rosbuild_add_executable(RGBD-d455
+src/ros_d455.cc
+)
+
+target_link_libraries(RGBD-d455
+${LIBS}
+)
+
 # Node for zed2i
 rosbuild_add_executable(Stereo-zed2i
 src/ros_zed2i.cc

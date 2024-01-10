@@ -656,8 +656,8 @@ void Frame::RemoveMovingPointsWithEpiAndYOLO(std::vector<double> epiErr, const c
                 continue;
             sort(it->epiErr.begin(),it->epiErr.end());
             double proStatic = (it->epiErr[M1]+it->epiErr[M2]+it->epiErr[M3])/3.0;
-//            cout<<it.GetLabel()<<": "<<proStatic<<endl;
-//            cout<<mpTracker->yoloBoundingBoxList.size()<<endl;
+           cout<<it->GetLabel()<<": "<<proStatic<<endl;
+           cout<<mpTracker->yoloBoundingBoxList.size()<<endl;
             if(proStatic<1.0)
             {
                 if(it->GetLabel() == "person" && proStatic<0.96)
@@ -699,6 +699,7 @@ void Frame::RemoveMovingKeyPoints(const cv::Mat &ImGray, const cv::Mat &ImDepth)
 
     for(auto it=mpTracker->yoloBoundingBoxList.begin(); it!=mpTracker->yoloBoundingBoxList.end(); ++it)
     {
+        // hayden 对于每个目标框，代码计算框内关键点深度的平均值和标准差。
         int BoxSize = it->KeyPointsInBox.size();
         if(BoxSize == 0)
             continue;
@@ -769,7 +770,7 @@ void Frame::RemoveMovingKeyPoints(const cv::Mat &ImGray, const cv::Mat &ImDepth)
             mDescriptorsDynamic.push_back(mDescriptors.row(i));
         }
     }
-    //hayden OVDOUTPUT 给ORB
+    // hayden OVDOUTPUT 给ORB 函数将保留下来的关键点 _mvKeys 替换原始关键点数组 mvKeys，并将保留下来的描述子矩阵 _mDescriptors 替换原始描述子矩阵 mDescriptors
     mvKeys.swap(_mvKeys);
     mDescriptors = _mDescriptors.clone();
 

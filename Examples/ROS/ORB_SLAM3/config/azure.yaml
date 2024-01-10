@@ -28,7 +28,7 @@ Camera.height: 720
 Camera.fps: 30
 
 # Color order of the images (0: BGR, 1: RGB. It is ignored if images are grayscale)
-Camera.RGB: 1
+Camera.RGB: 0
 
 # Close/Far threshold. Baseline times.
 Stereo.ThDepth: 40.0
@@ -71,7 +71,7 @@ Viewer.ViewpointZ: -3.5
 Viewer.ViewpointF: 500.0
 
 UseDynamic: 1
-PointCloudMapping: 1
+PointCloudMapping: 0
 PointCloudMapping.Resolution: 0.01
 meank: 50
 thresh: 1.0
