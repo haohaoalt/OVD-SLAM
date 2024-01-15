@@ -27,6 +27,7 @@ if [ "$CLEAN_PREVIOUS_BUILD" = true ]; then
     rm -rf Thirdparty/g2o/build
     rm -rf Thirdparty/Sophus/build
     rm -rf Thirdparty/yolov5_tensorrtx/build
+    rm -rf Examples/ROS/ORB_SLAM3/build
     rm -rf build
 fi
 
