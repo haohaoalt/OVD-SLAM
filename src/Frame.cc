@@ -625,7 +625,7 @@ void Frame::RemoveMovingPointsWithEpiAndYOLO(std::vector<double> epiErr, const c
     }
     else
     {
-        std::cout << "I'm in else yoloBoundingBoxList.size()" << mpTracker->yoloBoundingBoxList.size() << std::endl;
+        // std::cout << "I'm in else yoloBoundingBoxList.size()" << mpTracker->yoloBoundingBoxList.size() << std::endl;
         //遍历所有点
         for(int i=0; i<mvKeys.size(); i++)
         {

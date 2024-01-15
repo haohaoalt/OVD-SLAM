@@ -5096,6 +5096,7 @@ int Optimizer::PoseInertialOptimizationLastFrame(Frame *pFrame, bool bRecInit)
     // We perform 4 optimizations, after each optimization we classify observation as inlier/outlier
     // At the next optimization, outliers are not included, but at the end they can be classified as inliers again.
     const float chi2Mono[4]={5.991,5.991,5.991,5.991};
+    //hayden: 此处更改了原先的卡方阈值，threshold据说设置为0.1 但查表0.1应为6.25
     const float chi2Stereo[4]={15.6f,9.8f,7.815f,7.815f};
     const int its[4]={10,10,10,10};
 
