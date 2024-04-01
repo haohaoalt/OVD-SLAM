@@ -2,6 +2,6 @@
 *.pcd
 *.log
 *.txt
-**/model/*.engine
+**/model/*
 .vscode/*
 .idea/*

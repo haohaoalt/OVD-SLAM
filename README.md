@@ -1,4 +1,17 @@
 # OVD-SLAM
+## 01 build
+```
+./build.sh 
+#or
+./build.sh -c
+```
+
+## 02 run
+```shell
+./Examples/RGB-D/rgbd_tum ./Vocabulary/ORBvoc.bin ./Examples/RGB-D/TUM3.yaml /media/ylsdb20/Friday/dataset/TUM/5DynamicObjects/rgbd_dataset_freiburg3_walking_xyz /media/ylsdb20/Friday/dataset/TUM/5DynamicObjects/rgbd_dataset_freiburg3_walking_xyz/associations.txt 
+```
+
+## END before
 **OVD-SLAM** is an online visual SLAM for dynamic envionments. The library is the **basic version** of our work. Because some parts of the system are used in a cooperation projects with a company,  some functions are not open-source. However, it can also run on your computers and achieve similar performance to complete OVD-SLAM in the paper.
 ![ovd-slam](./doc/framework.png)
 + Forground and background feature points recognition by object detection and depth information.

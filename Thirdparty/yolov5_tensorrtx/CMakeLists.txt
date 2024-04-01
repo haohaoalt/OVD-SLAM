@@ -20,8 +20,8 @@ include_directories(${PROJECT_SOURCE_DIR}/include)
 include_directories(/usr/local/cuda/include)
 link_directories(/usr/local/cuda/lib64)
 # tensorrt
-include_directories(/home/ubuntu/Dev/docker/u18_cuda/App/TensorRT-7.2.3.4/include)
-link_directories(/home/ubuntu/Dev/docker/u18_cuda/App/TensorRT-7.2.3.4/targets/x86_64-linux-gnu/lib)
+include_directories(/home/ylsdb20/app/TensorRT-8.2.1.8.Linux.x86_64-gnu.cuda-11.4.cudnn8.2/TensorRT-8.2.1.8/include)
+link_directories(/home/ylsdb20/app/TensorRT-8.2.1.8.Linux.x86_64-gnu.cuda-11.4.cudnn8.2/TensorRT-8.2.1.8/targets/x86_64-linux-gnu/lib)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -Wall -Ofast -g -Wfatal-errors -D_MWAITXINTRIN_H_INCLUDED")
 #cuda_add_library(myplugins SHARED yololayer.cu)
